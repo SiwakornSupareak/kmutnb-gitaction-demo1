@@ -24,7 +24,7 @@ jobs:
 
     - name: Login to Docker Hub
       run: |
-        echo "${{ secrets.Buffon_bf_27 }}" | docker login -u "${{ secrets.siwakornsupareak }}" --password-stdin
+        echo "${{ secrets.Buffon.bf@27 }}" | docker login -u "${{ secrets.siwakornsupareak }}" --password-stdin
 
     - name: Push images to Docker Hub
       run: |
