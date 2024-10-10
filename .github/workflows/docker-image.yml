@@ -11,22 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
+    - uses: actions/checkout@v4
     - name: Build the Docker images
       run: |
-        docker build ./api/ -t "${{ secrets.SiwakornSupareak }}/app1-api:latest"
-        docker build ./front/ -t "${{ secrets.SiwakornSupareak }}/app1-frontend:latest"
+        docker build ./api/ -t ${{ secrets.SiwakornSupareak }}/app1-api:latest
+        docker build ./front/ -t ${{ secrets.SiwakornSupareak  }}/app1-frontend:latest
 
     - name: Login to Docker Hub
       run: |
-        echo "${{ secrets.Buffon271146 }}" | docker login -u "${{ secrets.SiwakornSupareak }}" --password-stdin
+        echo "${{ secrets.Buffon271146 }}" | docker login -u ${{ secrets.SiwakornSupareak  }} --password-stdin
 
     - name: Push images to Docker Hub
       run: |
-        docker push "${{ secrets.SiwakornSupareak }}/app1-api:latest"
-        docker push "${{ secrets.SiwakornSupareak }}/app1-frontend:latest"
+        docker push ${{ secrets.SiwakornSupareak  }}/app1-api:latest
+        docker push ${{ secrets.SiwakornSupareak  }}/app1-frontend:latest
